@@ -6,15 +6,16 @@ def count_sh(x):
     res = 0
     for n in range(1, 100, 2):
         res += (x ** n) / (factorial(n))
-    return res
+    return round(res, 3)
 
 
 def count_ln_x_plus_one(x):
     res = 0
     k = 1
-    for n in range(1, 100):
-        res += (k ** n) / n
+    for n in range(1, 1000):
+        res += (x ** n) / n * k
         k *= -1
+    return round(res, 3)
 
 
 def main():
@@ -34,7 +35,10 @@ def main():
 
         while True:
             try:
-                x = int(input('Введите х: '))
+                x = float(input('Введите х: '))
+                if act == '2' or act == '3':
+                    if not (-1 < x <= 1):
+                        print('x должен быть в диапозоне (-1;1]')
                 break
             except ValueError:
                 print('Вводите числа')
@@ -47,3 +51,7 @@ def main():
 
         else:
             pass
+
+
+if __name__ == '__main__':
+    main()
