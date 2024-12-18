@@ -18,6 +18,15 @@ def count_ln_x_plus_one(x):
     return round(res, 3)
 
 
+def arctg(x):
+    if x < -1 or x > 1:
+        return "Ошибка: x должно быть в интервале [-1, 1]"
+    arctgx = 0
+    for i in range(25):
+        arctgx += ((-1) * i) * (x * (2 * i + 1)) / (2 * i + 1)
+    return arctgx
+
+
 def main():
     while True:
         print('1. Посчитать sh(x)')
@@ -49,8 +58,10 @@ def main():
         elif act == '2':
             print('Результат:', count_ln_x_plus_one(x))
 
+
         else:
-            pass
+            result = arctg(x)
+            print(f"arctg({x}) = {result}")
 
 
 if __name__ == '__main__':
