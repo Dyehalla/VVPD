@@ -1,16 +1,49 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# 4, 6, 8
+from math import factorial
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+def count_sh(x):
+    res = 0
+    for n in range(1, 100, 2):
+        res += (x ** n) / (factorial(n))
+    return res
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+def count_ln_x_plus_one(x):
+    res = 0
+    k = 1
+    for n in range(1, 100):
+        res += (k ** n) / n
+        k *= -1
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+def main():
+    while True:
+        print('1. Посчитать sh(x)')
+        print('2. Посчитать ln(1 + x)')
+        print('3. Посчитать arctg(x)')
+        print('4. Выйти')
+        act = input('Выберите действие: ')
+
+        if act == '4':
+            break
+
+        if act not in ('1', '2', '3'):
+            print('Неверный ввод')
+            continue
+
+        while True:
+            try:
+                x = int(input('Введите х: '))
+                break
+            except ValueError:
+                print('Вводите числа')
+
+        if act == '1':
+            print('Результат:', count_sh(x))
+
+        elif act == '2':
+            print('Результат:', count_ln_x_plus_one(x))
+
+        else:
+            pass
